@@ -1,0 +1,13 @@
+<h1>This is POST user registration form</h1>
+
+<form action="AddUser2" method="post">
+    {%csrf_token%}
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname"><br>
+
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname"><br>
+
+    <input type="submit" value="save">
+    <input type="reset" value="reset" id="">
+</form>
