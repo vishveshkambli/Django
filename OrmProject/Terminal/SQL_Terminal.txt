@@ -1,0 +1,197 @@
+Last login: Sun Oct 15 16:47:56 on ttys000
+vishvesh@Macbook-Air-2 ormproject % cd ..
+vishvesh@Macbook-Air-2 ormproject % cd ..
+vishvesh@Macbook-Air-2 Django % cd ..
+vishvesh@Macbook-Air-2 Programing % cd ..
+vishvesh@Macbook-Air-2 ~ % ls
+AndroidStudioProjects		Pictures
+Applications			Programing
+Desktop				Public
+Doccuments			SampleRepo
+Documents			VISH
+Downloads			Videos
+Library				eclipse
+Movies				eclipse-workspace
+Music				vishvesh_cv.pdf
+Photos Library 4.photoslibrary
+vishvesh@Macbook-Air-2 ~ % /applications/xampp/xamppfiles/bin/mysql -u root -p
+Enter password: 
+ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/Applications/XAMPP/xamppfiles/var/mysql/mysql.sock' (2)
+vishvesh@Macbook-Air-2 ~ % /applications/xampp/xamppfiles/bin/mysql -u root -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 9
+Server version: 10.4.21-MariaDB Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create database dj7to9orm;
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [(none)]> use dj7to9orm
+Database changed
+MariaDB [dj7to9orm]> showtables;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'showtables' at line 1
+MariaDB [dj7to9orm]> showtables
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'showtables' at line 1
+MariaDB [dj7to9orm]> show tables;
+Empty set (0.001 sec)
+
+MariaDB [dj7to9orm]> showtables;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    12
+Current database: dj7to9orm
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'showtables' at line 1
+MariaDB [dj7to9orm]> show tables;
++---------------------+
+| Tables_in_dj7to9orm |
++---------------------+
+| django_migrations   |
+| ormfirstapp_emp     |
++---------------------+
+2 rows in set (0.001 sec)
+
+MariaDB [dj7to9orm]> desc ormfirstapp_emp;
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| id      | bigint(20)  | NO   | PRI | NULL    | auto_increment |
+| name    | varchar(30) | NO   |     | NULL    |                |
+| email   | varchar(30) | NO   |     | NULL    |                |
+| contact | varchar(30) | NO   |     | NULL    |                |
+| age     | int(11)     | NO   |     | NULL    |                |
+| address | longtext    | NO   |     | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
+6 rows in set (0.011 sec)
+
+MariaDB [dj7to9orm]> show tables;
++---------------------+
+| Tables_in_dj7to9orm |
++---------------------+
+| account             |
+| django_migrations   |
+| ormfirstapp_emp     |
++---------------------+
+3 rows in set (0.001 sec)
+
+MariaDB [dj7to9orm]> desc account;
++-------------+-------------+------+-----+---------+----------------+
+| Field       | Type        | Null | Key | Default | Extra          |
++-------------+-------------+------+-----+---------+----------------+
+| id          | bigint(20)  | NO   | PRI | NULL    | auto_increment |
+| salary      | int(11)     | NO   |     | NULL    |                |
+| month       | varchar(30) | NO   |     | NULL    |                |
+| year        | int(11)     | NO   |     | NULL    |                |
+| description | longtext    | NO   |     | NULL    |                |
+| emp_id      | bigint(20)  | NO   | MUL | NULL    |                |
++-------------+-------------+------+-----+---------+----------------+
+6 rows in set (0.007 sec)
+
+MariaDB [dj7to9orm]> show tables;
++---------------------+
+| Tables_in_dj7to9orm |
++---------------------+
+| account             |
+| django_migrations   |
+| ormfirstapp_emp     |
++---------------------+
+3 rows in set (0.003 sec)
+
+MariaDB [dj7to9orm]> select * in ormfirstapp_emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'in ormfirstapp_emp' at line 1
+MariaDB [dj7to9orm]> select * ormfirstapp_emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ormfirstapp_emp' at line 1
+MariaDB [dj7to9orm]> select * from  ormfirstapp_emp;
++----+----------------+-------+---------+-----+--------------------------------------------+
+| id | name           | email | contact | age | address                                    |
++----+----------------+-------+---------+-----+--------------------------------------------+
+|  1 | vishvesh vinod | dsdc  | sdsd    |  10 | 306, suryakoti apt, maitri park thane west |
++----+----------------+-------+---------+-----+--------------------------------------------+
+1 row in set (0.003 sec)
+
+MariaDB [dj7to9orm]> select * ormfirstapp_emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ormfirstapp_emp' at line 1
+MariaDB [dj7to9orm]> select * from  ormfirstapp_emp;
++----+----------------+-------------+---------+-----+--------------------------------------------+
+| id | name           | email       | contact | age | address                                    |
++----+----------------+-------------+---------+-----+--------------------------------------------+
+|  1 | vishvesh vinod | dsdc        | sdsd    |  10 | 306, suryakoti apt, maitri park thane west |
+|  2 | vish           | v@gmail.com | 987654  |  24 | 306, suryakoti apt, maitri park thane west |
++----+----------------+-------------+---------+-----+--------------------------------------------+
+2 rows in set (0.002 sec)
+
+MariaDB [dj7to9orm]> Ctrl-C -- exit!
+Aborted
+vishvesh@Macbook-Air-2 ~ % /applications/xampp/xamppfiles/bin/mysql -u root -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 56
+Server version: 10.4.21-MariaDB Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| CRM                |
+| Paper2             |
+| appoinments_db     |
+| college            |
+| company            |
+| crm_system         |
+| dj7to9orm          |
+| information_schema |
+| mysql              |
+| paper1             |
+| performance_schema |
+| phpmyadmin         |
+| vishbank           |
++--------------------+
+13 rows in set (0.003 sec)
+
+MariaDB [(none)]> use dj7to9orm
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [dj7to9orm]> show tables;
++---------------------+
+| Tables_in_dj7to9orm |
++---------------------+
+| account             |
+| django_migrations   |
+| ormfirstapp_emp     |
+| student             |
++---------------------+
+4 rows in set (0.001 sec)
+
+MariaDB [dj7to9orm]> select * from ormfirstapp_emp;
++----+----------------+------------------------------+------------+-----+--------------------------------------------+
+| id | name           | email                        | contact    | age | address                                    |
++----+----------------+------------------------------+------------+-----+--------------------------------------------+
+|  1 | vishvesh vinod | dsdc                         | sdsd       |  10 | 306, suryakoti apt, maitri park thane west |
+|  2 | vish           | v@gmail.com                  | 987654     |  24 | 306, suryakoti apt, maitri park thane west |
+|  3 | vishvesh       | vishveshkambli.864@gmail.com | 8655849067 |  24 | 306, suryakoti apt, maitri park thane west |
++----+----------------+------------------------------+------------+-----+--------------------------------------------+
+3 rows in set (0.001 sec)
+
+MariaDB [dj7to9orm]> MariaDB [dj7to9orm]> select * from ormfirstapp_emp;
++----+----------------+------------------------------+------------+-----+--------------------------------------------+
+| id | name           | email                        | contact    | age | address                                    |
++----+----------------+------------------------------+------------+-----+--------------------------------------------+
+|  1 | vishvesh vinod | dsdc                         | sdsd       |  10 | 306, suryakoti apt, maitri park thane west |
+|  2 | vish           | v@gmail.com                  | 987654     |  24 | 306, suryakoti apt, maitri park thane west |
+|  3 | vishvesh       | vishveshkambli.864@gmail.com | 8655849067 |  24 | 306, suryakoti apt, maitri park thane west |
+|  4 | vishveshwar    | v@yahoo.com                  | 4567890    |  24 | 306, suryakoti apt, maitri park thane west |
++----+----------------+------------------------------+------------+-----+--------------------------------------------+
+4 rows in set (0.001 sec)
+
+MariaDB [dj7to9orm]> 
